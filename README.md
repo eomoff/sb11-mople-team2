@@ -17,7 +17,7 @@
 
 <br/>
 
-<img width="1200" height="1310" alt="4컷(4)" src="https://github.com/user-attachments/assets/b7f78052-62f3-49c6-93a5-71b6ac7661be" />
+<img width="1200" height="1310" alt="4컷(4)" src="https://github.com/user-attachments/assets/3694bc6e-d3a9-4364-b568-25eba69dc692" />
 
 <br/><br/>
 
@@ -89,14 +89,22 @@
 
 ## 🛠 기술 스택
 
-| 분류 | 기술 |
+<div align="center">
+
+<img src="https://skillicons.dev/icons?i=java,spring,gradle,postgres,redis,kafka,elasticsearch,docker,aws,nginx,githubactions,prometheus&perline=6" alt="기술 스택"/>
+
+</div>
+
+<br/>
+
+| 분류 | 상세 |
 |:---|:---|
-| **Language & Framework** | ![Java](https://img.shields.io/badge/Java%2017-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white) ![Spring Security](https://img.shields.io/badge/Spring%20Security-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white) ![Spring Batch](https://img.shields.io/badge/Spring%20Batch-6DB33F?style=for-the-badge&logo=spring&logoColor=white) ![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white) |
-| **Database & ORM** | ![PostgreSQL](https://img.shields.io/badge/PostgreSQL%2016-4169E1?style=for-the-badge&logo=postgresql&logoColor=white) ![JPA](https://img.shields.io/badge/Spring%20Data%20JPA-59666C?style=for-the-badge&logo=hibernate&logoColor=white) ![QueryDSL](https://img.shields.io/badge/QueryDSL-0769AD?style=for-the-badge) ![Redis](https://img.shields.io/badge/Redis%207-FF4438?style=for-the-badge&logo=redis&logoColor=white) |
-| **Real-time & Messaging** | ![WebSocket](https://img.shields.io/badge/WebSocket%20(STOMP)-010101?style=for-the-badge) ![SSE](https://img.shields.io/badge/SSE-FF6C37?style=for-the-badge) ![Kafka](https://img.shields.io/badge/Apache%20Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white) ![Elasticsearch](https://img.shields.io/badge/Elasticsearch%208-005571?style=for-the-badge&logo=elasticsearch&logoColor=white) |
-| **Auth & External** | ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white) ![OAuth2](https://img.shields.io/badge/OAuth2%20(Google·Kakao)-4285F4?style=for-the-badge&logo=google&logoColor=white) ![TMDB](https://img.shields.io/badge/TMDB-01B4E4?style=for-the-badge&logo=themoviedatabase&logoColor=white) ![OpenFeign](https://img.shields.io/badge/OpenFeign-6DB33F?style=for-the-badge&logo=spring&logoColor=white) |
-| **Infra & Deploy** | ![AWS](https://img.shields.io/badge/AWS%20ECS%20·%20ECR%20·%20S3-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![Nginx](https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white) |
-| **Test & Docs** | ![JUnit5](https://img.shields.io/badge/JUnit5-25A162?style=for-the-badge&logo=junit5&logoColor=white) ![Testcontainers](https://img.shields.io/badge/Testcontainers-291A3E?style=for-the-badge&logo=testcontainers&logoColor=white) ![k6](https://img.shields.io/badge/k6-7D64FF?style=for-the-badge&logo=k6&logoColor=white) ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black) ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white) |
+| **Language & Framework** | Java 17 · Spring Boot 3.5.16 · Spring Security · Spring Batch · Spring Cloud 2025.0.1 |
+| **Database & ORM** | PostgreSQL 16 · Spring Data JPA · QueryDSL 5.0.0 · Redis 7 · H2(테스트) |
+| **Real-time & Messaging** | WebSocket(STOMP over SockJS) · SSE · Apache Kafka 3.9.0 · Elasticsearch 8.18.8 |
+| **Auth & External API** | JWT(jjwt) · OAuth2(Google · Kakao) · TMDB · The Sports DB · OpenFeign |
+| **Infra & Deploy** | AWS ECS Fargate · ECR · S3 · Docker · Docker Compose · Nginx · GitHub Actions |
+| **Test & Monitoring** | JUnit 5 · Mockito · Testcontainers · JaCoCo · k6 · Actuator · Prometheus · Swagger |
 
 <br/>
 
