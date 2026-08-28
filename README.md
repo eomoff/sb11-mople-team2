@@ -17,12 +17,12 @@
 
 <br/>
 
-<img width="1200" height="1310" alt="4컷(4)" src="https://github.com/user-attachments/assets/c019b2d2-0649-4375-aeb3-2f4f608fd27b" />
+<img width="1200" height="1310" alt="4컷(4)" src="https://github.com/user-attachments/assets/b7f78052-62f3-49c6-93a5-71b6ac7661be" />
 
 <br/><br/>
 
-[프로젝트 소개](#-프로젝트-소개) · [팀원](#-팀원-소개) · [기술 스택](#-기술-스택) · [브랜치 전략](#-브랜치-전략--커밋-컨벤션)<br/>
-[프로젝트 구조](#-프로젝트-구조) · [주요 기능](#-주요-기능) · [API](#-api) · [CI/CD](#️-cicd--테스트) · [문서](#-문서)
+[프로젝트 소개](#-프로젝트-소개) · [팀원](#-팀원-소개) · [기술 스택](#-기술-스택)<br/>
+[브랜치 전략](#-브랜치-전략--커밋-컨벤션) · [프로젝트 구조](#-프로젝트-구조) · [주요 기능](#-주요-기능) · [CI/CD](#️-cicd--테스트)
 
 </div>
 
@@ -75,8 +75,8 @@
 </tr>
 <tr>
   <td align="center"><sub>인증·인가<br/>JWT · OAuth2<br/>사용자<br/>ECS · CD 인프라</sub></td>
-  <td align="center"><sub>콘텐츠<br/>외부 API 연동<br/>수집 배치<br/>실시간 같이 보기</sub></td>
-  <td align="center"><sub>팔로우<br/>플레이리스트<br/>Kafka 발행·소비<br/>Redis 락·캐시</sub></td>
+  <td align="center"><sub>콘텐츠<br/>외부 API(SportDB)<br/>수집 배치<br/>실시간 같이 보기</sub></td>
+  <td align="center"><sub>팔로우<br/>플레이리스트<br/>외부 API(TMDB)<br/>Kafka 발행·소비<br/>Redis 락·캐시</sub></td>
   <td align="center"><sub>리뷰<br/>플레이리스트<br/>Kafka 발행·소비<br/>Elasticsearch 매핑</sub></td>
   <td align="center"><sub>DM 대화방<br/>다이렉트 메시지<br/>WebSocket<br/>SSE</sub></td>
   <td align="center"><sub>사용자 관리<br/>어드민<br/>알림<br/>SSE</sub></td>
@@ -151,33 +151,19 @@ com.codeit.mople
 
 ## ✨ 주요 기능
 
-| 도메인 | 기능 |
-|:---|:---|
-| **인증** | JWT 로그인·토큰 재발급, Google/Kakao 소셜 로그인, 비밀번호 초기화(메일), 재로그인 시 기존 기기 세션 무효화 |
-| **사용자** | 회원가입, 프로필 수정(S3 이미지), 어드민 권한 변경·계정 잠금 |
-| **콘텐츠** | 콘텐츠 CRUD(어드민), TMDB·SportsDB 수집 배치, Elasticsearch 검색 |
-| **평가** | 평점·의견 CRUD, 콘텐츠 평균 평점·리뷰 수 집계 |
-| **큐레이팅** | 플레이리스트 CRUD, 콘텐츠 추가/삭제, 구독 |
-| **소셜** | 팔로우·팔로우 취소, 팔로우 알림 |
+| 도메인        | 기능 |
+|:--------------|:---|
+| **인증**      | JWT 로그인·토큰 재발급, Google/Kakao 소셜 로그인, 비밀번호 초기화(메일), 재로그인 시 기존 기기 세션 무효화 |
+| **사용자**    | 회원가입, 프로필 수정(S3 이미지), 어드민 권한 변경·계정 잠금 |
+| **콘텐츠**    | 콘텐츠 CRUD(어드민), TMDB·SportsDB 수집 배치, Elasticsearch 검색 |
+| **평가**      | 평점·의견 CRUD, 콘텐츠 평균 평점·리뷰 수 집계 |
+| **큐레이팅**  | 플레이리스트 CRUD, 콘텐츠 추가/삭제, 구독 |
+| **소셜**      | 팔로우·팔로우 취소, 팔로우 알림 |
 | **같이 보기** | 시청 세션 입장/퇴장 브로드캐스트, 콘텐츠 실시간 채팅 |
-| **DM** | WebSocket 실시간 전송 + SSE 대화 목록 갱신, Redis 읽음 워터마크 |
-| **알림** | 권한 변경·구독·팔로우·DM 이벤트를 SSE로 실시간 전달 |
+| **DM**        | WebSocket 실시간 전송 + SSE 대화 목록 갱신, Redis 읽음 워터마크 |
+| **알림**      | 권한 변경·구독·팔로우·DM 이벤트를 SSE로 실시간 전달 |
 
 > 배치 Job은 `tmdbCollectJob`(TMDB 영화·시리즈), `sportsContentJob`(스포츠) 두 개입니다.
-
-<br/>
-
----
-
-## 📋 API
-
-| 항목 | 내용 |
-
-| **인증** | `Authorization: Bearer {accessToken}` + CSRF(`XSRF-TOKEN` 쿠키 → `X-XSRF-TOKEN` 헤더)<br/>리프레시 토큰은 `REFRESH_TOKEN` 쿠키 |
-| **목록 조회** | `cursor` + `idAfter` 복합 커서 페이지네이션 |
-| **에러 응답** | `{ "success": false, "error": { "code": "FOLLOW-002", "message": "..." } }`<br/>성공 응답은 DTO를 그대로 반환 |
-| **SSE** | `GET /api/sse` — `notifications`, `direct-messages` 이벤트 |
-| **WebSocket** | `/ws` (STOMP over SockJS) — 구독 `/sub/...`, 발행 `/pub/...` |
 
 <br/>
 
@@ -194,16 +180,3 @@ com.codeit.mople
 테스트는 `service/`(Mockito) · `repository/`(`@DataJpaTest`) · `controller/`(`@WebMvcTest`) · `batch/`(`@SpringBatchTest`)로 나뉘고,
 실시간·Redis 통합 테스트는 Testcontainers를 씁니다.
 커버리지는 `domain/**/service/**`의 **클래스별 라인 80%** 미만이면 `check`가 실패합니다.
-
-<br/>
-
----
-
-## 📚 문서
-
-| 문서 | 내용 |
-|:---|:---|
-| [`doc.md`](./doc.md) | 프로젝트 요구사항 |
-| [`api.md`](./api.md) | API 명세 — **계약의 기준** |
-| [`erd.md`](./erd.md) | ERD 다이어그램 및 컬럼 정의 |
-| [`conventions.md`](./conventions.md) | 팀 개발 컨벤션 |
