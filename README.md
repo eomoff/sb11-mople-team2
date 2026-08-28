@@ -172,7 +172,6 @@ com.codeit.mople
 ## 📋 API
 
 | 항목 | 내용 |
-|:---|:---|<img width="1200" height="1310" alt="4컷(4)" src="https://github.com/user-attachments/assets/d7e99be0-ca01-474b-9a59-08f824028a6f" />
 
 | **인증** | `Authorization: Bearer {accessToken}` + CSRF(`XSRF-TOKEN` 쿠키 → `X-XSRF-TOKEN` 헤더)<br/>리프레시 토큰은 `REFRESH_TOKEN` 쿠키 |
 | **목록 조회** | `cursor` + `idAfter` 복합 커서 페이지네이션 |
